@@ -1,0 +1,12 @@
+h1{
+    text-align: center;
+}
+
+.gameBoard{
+    width: 50%;
+    margin: 0 auto;
+    height:500px;
+    padding: 10px 20px;
+    background-color: #1F253D;
+    color: white;
+}
