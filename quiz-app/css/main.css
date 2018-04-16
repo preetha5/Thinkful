@@ -1,0 +1,208 @@
+*{
+	box-sizing: border-box;
+	outline: none;
+}
+html{
+		background-color: #010101;
+}
+body{
+	margin:0;padding:0;
+	background: url("https://i.imgur.com/8aS2yQb.jpg") no-repeat;
+	background-size: cover;
+	background-position: center center;
+	color: #FFF3B0;
+	font-family: 'Oswald', sans-serif;
+}
+header h1{
+		font-size: 25px;
+		text-shadow: 2px 2px #70181C;
+}
+ h2{
+ 	    font-size: 20px;
+ }
+
+header h1, .questionBox h2{
+	text-align: center;
+	padding: 20px 10px;
+	font-family: 'Bellefair', sans-serif;
+}
+main{
+	max-width: 960px;
+	margin: 0 auto;
+	border: solid 1px ;
+}
+
+/*Legend only for screen reader support
+Can be hidden visually*/
+fieldset{
+	border: none;
+}
+legend{
+	font-size: 0;
+}
+
+input[name="start"], input[name="replay"]{
+	color: #FFF3B0;
+	width: 50%;
+	height: 50px;
+	border-radius: 5px;
+	background-color: #70181C;;
+	border: none;
+	font-size: 1.2em;
+	font-family: 'Oswald', sans-serif;
+	font-weight: bold;
+	box-shadow: inset 0px 0px 10px rgba(255,255,255, 0.6);
+}
+
+input[name="start"]:hover:enabled, input[name="start"]:focus, input[name="replay"]:hover:enabled, input[name="replay"]:focus{
+	font-size: 1.5em;
+	border: solid 1px #FFF3B0;
+}
+
+.tracking, .questionBox, .optionsForm, .final{
+	display: none;
+}
+
+.quizHome, .final{
+	width: 80%;
+	margin: 5em auto;
+	text-align: center;
+	padding: 20px 30px;
+    border: solid 2px #fff;
+    border-radius: 10px;
+}
+.tracking{
+	position: relative;
+	margin-bottom: 1em;
+}
+
+.trackingCard{
+	display: inline-block;
+	border: solid 1px;
+	width: 30%;
+    text-align: center;
+    padding: 0 5px;
+}
+
+.scoreCard{
+	position: absolute;
+	right: 0;
+	top:0;
+}
+
+.questionBox{
+	width: 80%;
+    margin: 1em 10%;
+    height: 15vh;
+}
+
+.optionsForm{
+	width: 90%;
+    margin: 1em 5% 2em;
+}
+
+.optionsForm form{
+	text-align: center;
+}
+
+.optionsForm .option{
+	display: block;
+	margin: 1em 0;
+	width: 100%;
+	height: 35px;
+	text-align: left;
+	border-radius: 10px;
+	position: relative;
+}
+
+.btnNext{
+	width: 20%;
+}
+.optionsForm .option, .btnNext{
+	height: 45px;
+	padding: 8px;
+	font-size: 14px;
+	-moz-box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .4), inset -2px -2px 2px rgba(0, 0, 0, .4);
+    -webkit-box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .4), inset -2px -2px 2px rgba(0, 0, 0, .4);
+    box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .4), inset -2px -2px 2px rgba(0, 0, 0, .4);
+}
+
+.optionsForm .option:hover, .btnNext:hover:enabled, .option:focus{
+	-moz-box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .9), inset -2px -2px 2px rgba(0, 0, 0, .9);
+    -webkit-box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .4), inset -2px -2px 2px rgba(0, 0, 0, .4);
+    box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .9), inset -2px -2px 2px rgba(0, 0, 0, .9);
+}
+
+.answer{
+	position: absolute;
+	right: 20px;
+	font-weight: bold;
+}
+
+
+/* Styles to show correct/incorrect feedback */
+.highlight, .btnNext:focus{
+	border: solid 6px #335C67;
+}
+.confirm{
+	position: absolute;
+	right: 10px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.confirm.right{
+	color: green;
+}
+
+.confirm.wrong{
+	color: red;
+}
+
+/* Media Queries */
+
+@media screen and (min-width:768px){
+
+	main{
+		padding:5em 0;
+		margin-bottom: 2em;
+	}
+
+	input[name="start"]{
+		color: #FFF3B0;
+		width: 50%;
+		height: 50px;
+		font-size: 1.5em;
+	}
+
+	input[name="start"]:hover, input[name="start"]:focus{
+		font-size: 2em;
+	}
+
+	h1{
+		font-size: 35px;
+	}
+
+	h2{
+		font-size: 25px;
+	}
+
+	.trackingCard{
+		width: 20%;
+	}
+
+	 .optionsForm{
+		width: 60%;
+	    margin: 2em auto;
+    }
+
+    .questionBox{
+	    height: 10vh;
+	}
+
+    .optionsForm .option, .btnNext{
+    	font-size: 18px;
+    	padding: 6px;
+    }
+
+  }

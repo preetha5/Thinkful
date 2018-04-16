@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Movie Quotes Quiz</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Quiz about Movie Quotes">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Bellefair|Oswald:500,600" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<header role="banner">
+		<h1>FAMOUS MOVIE QUOTES</h1>
+	</header>
+	<main role="main">
+		<section class="quizHome">
+			<form>
+				<h2>Ready to play a movie trivia game about classic movie quotes?</h2>
+				<input type="submit" name="start" value="PLAY" tabindex="0">
+			</form>
+		</section>
+		<section class="tracking" aria-live="assertive">
+			<div class="trackingCard questionCard" aria-label="questionCard" aria-live="assertive">
+			</div>
+			<div class="trackingCard scoreCard" aria-label="scoreCard" aria-live="assertive">
+			</div>
+		</section>
+
+		<!-- <section class="questionBox">
+		</section> -->
+		
+		<section class="optionsForm" aria-live="assertive">
+			
+		</section>
+
+		<section class="final">
+			<h3>FINAL SCORE: <span class="score"></span></h3>
+			<h3>Would you like to replay the game?</h3>
+			<input type="submit" name="replay" value="TRY AGAIN" class="replay" autofocus>
+		</section>
+	</main>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
