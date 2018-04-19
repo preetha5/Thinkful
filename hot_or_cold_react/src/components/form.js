@@ -22,13 +22,13 @@ export default class Form extends React.Component{
     }
 
     render(){
-        let guessList = this.props.guesses.map((number, index) =>{
-            return (<li key={index}>{number}</li>);
-        });
+        // let guessList = this.props.guesses.map((number, index) =>{
+        //     return (<li key={index}>{number}</li>);
+        // });
 
-        if(this.props.resetGuess){
-            guessList =[];
-        }
+        // if(this.props.resetGuess){
+        //     guessList =[];
+        // }
 
        return( 
            <form className='inputForm'>
@@ -37,9 +37,6 @@ export default class Form extends React.Component{
                  required />
                 <br />
                 {this.props.displaySubmit ? <button type='submit' onClick={(e)=>this.onSubmit(e)}>Submit </button> :null}
-                <p>Guesses so far:</p>
-                <ul className="guessList" >
-                    {guessList} </ul>
             </form>);
     }
 }

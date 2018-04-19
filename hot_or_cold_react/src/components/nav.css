@@ -1,0 +1,21 @@
+.menu {
+    list-style-type: none;
+    font-weight: bold;
+    position: relative;
+    height: 10%;
+    padding: 1em;
+}
+
+.menu li:first-child {
+    float: left;
+}
+
+.menu li:last-child {
+    float: right;
+}
+
+.menu a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #1F253D;
+}

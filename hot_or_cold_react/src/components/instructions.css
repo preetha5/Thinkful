@@ -1,0 +1,25 @@
+/* Create a highlight keyframe */
+@keyframes section-highlight {
+    0% {
+      background: #9b1228;
+    }
+    100% {
+      background: none;
+    }
+  }
+  
+  ol {
+    margin-bottom: 1rem;
+  }
+  
+  #howToPlay {
+    padding: 2rem;
+  }
+  
+  #howToPlay:focus {
+    outline: 0;
+  }
+  
+  #howToPlay:target {
+    animation: section-highlight 3s;
+  }

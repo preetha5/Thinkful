@@ -1,13 +1,15 @@
 import React from 'react';
+import Reset from './reset';
+import Instructions from './instructions';
+import './nav.css';
 
 export default function Nav(props){
-    const link = '+NEW GAME';
-
+    
     return (
         <nav>
-            <ul>
-                <li className="menu" onClick={(e)=> props.resetMenu(e)}>
-                <a href='#'>{link}</a></li>
+            <ul className="menu">
+                <Reset onReset={()=>props.onReset()} />
+                <Instructions showInstructions={(val)=>props.showInstructions(val)}/>
             </ul>
         </nav>
     )

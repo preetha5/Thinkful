@@ -2,27 +2,33 @@ import React from 'react';
 import './game.css';
 import Nav from './nav';
 import Form from './form';
+import Feedback from './feedback';
+import GuessList from './guesslist';
+import Info from './info';
 
-function makeRandomNumber(){
-    return Math.floor(Math.random()*100+1);
-}
 export default class Game extends React.Component{
     constructor(props){
         super(props);
-        this.state = this.setInitialState()
-    }
-
-    setInitialState(){
-        return {
-            randomNumber:makeRandomNumber(),
-            message:'',
+        this.state = {
+            randomNumber:Math.floor(Math.random()*100+1),
+            message:'Take a guess. Pick a number between 1 and 100.',
             showSubmit:true,
-            guessesList:[]
+            guessesList:[],
+            showInfo: false
         }
     }
-    resetGame(e){
-        e.preventDefault();
-        this.setState(this.setInitialState());   
+
+    restartGame(){
+        window.location.reload(); 
+    }
+
+    onClose(){
+        document.getElementById("info").innerHTML='';
+    }
+    showInstructions(val){
+        this.setState({
+            showInfo :val
+        })
     }
 
     setFeedback(message){
@@ -30,29 +36,32 @@ export default class Game extends React.Component{
             message
         });
     }
+
     checkGuess(num){
         console.log(typeof(num));
         //Add guess to GuessList
         this.setState(
             {guessesList : [...this.state.guessesList,num]}
         );
-        if(num === this.state.randomNumber){
+        console.log(this.state.randomNumber);
+        const difference = Math.abs(num-this.state.randomNumber);
+
+        if(difference === 0){
             //Hide the guess submit button after success
             this.setState({showSubmit:false})
             this.setFeedback('YOU ARE CORRECT! Click on New game to play again?');
             console.log("you are correct, start new game?");
-        } else if((Math.abs(num-this.state.randomNumber))<10){
-            //message = 'Sorry wrong guess. Try Again.';
+        } else 
+        if(difference < 10){
             this.setFeedback('HOT');
-        } else if((Math.abs(num-this.state.randomNumber))>9 &&
-        ((Math.abs(num-this.state.randomNumber))<20)){
-            //message = 'Sorry wrong guess. Try Again.';
+        } else 
+        if(difference < 20){
             this.setFeedback('KINDA HOT');
-        } else if((Math.abs(num-this.state.randomNumber))>19 &&
-        ((Math.abs(num-this.state.randomNumber))<30)){
-            //message = 'Sorry wrong guess. Try Again.';
+        } else 
+        if(difference < 30){
             this.setFeedback('WARM');
-        } else if ((Math.abs(num-this.state.randomNumber))>30){
+        } else 
+        if (difference >= 30){
             this.setFeedback('COLD');
         }
     }
@@ -60,17 +69,19 @@ export default class Game extends React.Component{
     render(){
         return (
             <div>
-                <Nav resetMenu={(e)=>this.resetGame(e)}/>
+                <Nav onReset={()=>{this.restartGame()}}
+                showInstructions = {(val) => this.showInstructions(val)}/>
                 <h1>Hot Or Cold? </h1>
                 <div className="gameBoard">
-                    <p>Take a guess. Pick a number between 1 and 100 </p>
-                    <h2 className="feedback">{this.state.message}</h2>
+                    <Feedback message= {this.state.message} />
                     <Form 
                         displaySubmit={this.state.showSubmit} 
                         random={this.state.randomNumber} 
                         checkGuess={num=> this.checkGuess(num)} 
                         guesses={this.state.guessesList} />
+                    <GuessList guesses={this.state.guessesList} />
                 </div>
+                <Info showInfo={this.state.showInfo} onClose={(val)=>this.showInstructions(val)}/>
             </div>
         )
     }
