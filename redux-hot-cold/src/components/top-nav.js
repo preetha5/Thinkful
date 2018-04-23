@@ -42,8 +42,4 @@ export function TopNav(props) {
   );
 }
 
-const mapStateToProps = state => ({
-    auralStatus : state.auralStatus
-});
-
-export default connect(mapStateToProps) (TopNav);
+export default connect() (TopNav);
